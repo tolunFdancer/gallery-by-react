@@ -1,4 +1,2 @@
 # gallery-by-react
-one photo gallery project based on react.
-This is my first react application.In fact, I am a little excited.
-You know what you should do !
+The tragedy of life is not so much what men suffer, but what they miss.
