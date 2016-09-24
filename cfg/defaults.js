@@ -4,7 +4,7 @@
  * Using [].push will add to the base array, so a require will alter
  * the base array output.
  */
-'use strict';
+//'use strict';
 
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');

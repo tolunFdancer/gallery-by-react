@@ -1,20 +1,22 @@
 require('normalize.css/normalize.css');
 require('styles/App.css');
-
+//var imageDatas = require('../data/imageDatas.json');
 import React from 'react';
+import ReactDOM from 'react-dom';
 
+//import imageData from '../data/imageDatas.json';
 //获取图片数据
 let imageDatas = require('../data/imageDatas.json');
-
+//var imageDatas = imageData;
 //图片信息转换为URL信息
-imageDatas = (function genImageURL(imageDatasArr) {
+/*imageDatas = (function genImageURL(imageDatasArr) {
   for(let i=0,j=imageDatasArr.length; i<j; i++) {
     let singleImageData = imageDatasArr[i];
     singleImageData.imageURL = require('../images/'+singleImageData.fileName);
     imageDatasArr[i] = singleImageData;
   }
   return imageDatasArr;
-})(imageDatas);
+})(imageDatas);*/
 
 //获取区间内的随机值
 function getRangeRandom(low, high) {
@@ -22,6 +24,17 @@ function getRangeRandom(low, high) {
 }
 
 class AppComponent extends React.Component {
+  //noinspection JSAnnotator
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgsArrangeArr: {
+
+      }
+    };
+  }
+
   //noinspection JSAnnotator
   Constant: {
     centerPos: {
@@ -103,28 +116,28 @@ class AppComponent extends React.Component {
         });
   }
 
-  getInitialState() {
+  /*getInitialState() {
     return {
       imgsArrangeArr: [
-        /*{
+        /!*{
           pos: {
             left: '0',
             top: '0'
           }
-        }*/
+        }*!/
       ]
     };
-  }
+  }*/
 
   componentDidMount() {
 
-    let stageDom = React.findDOMNode(this.refs.stage),
+    let stageDom = ReactDOM.findDOMNode(this.refs.stage),
         stageW = stageDom.scrollWidth,
         stageH = stageDom.scrollHeight,
         halfStageW = Math.ceil(stageW / 2),
         halfStageH = Math.ceil(stageH / 2);
 
-    let imgFigureDom = React.findDOMNode(this.refs.imgFigure0),
+    let imgFigureDom = ReactDOM.findDOMNode(this.refs.imgFigure0),
         imgW = imgFigureDom.scrollWidth,
         imgH = imgFigureDom.scrollHeight,
         halfImgW = Math.ceil(imgW / 2),
@@ -164,7 +177,7 @@ class AppComponent extends React.Component {
           }
         };
       }
-      imgFigures.push(<ImgFigure data={value} arr={this.state.imgsArrangeArr[index]} ref={'imgFigure'+ index } />);
+      imgFigures.push(<ImgFigure key={index} data={value} arr={this.state.imgsArrangeArr[index]} ref={'imgFigure'+ index } />);
     }.bind(this));
     return (
       <section className="stage" ref="stage">
