@@ -1,3 +1,5 @@
+'use strict';
+
 require('normalize.css/normalize.css');
 require('styles/App.css');
 //var imageDatas = require('../data/imageDatas.json');
@@ -9,14 +11,14 @@ import ReactDOM from 'react-dom';
 let imageDatas = require('../data/imageDatas.json');
 //var imageDatas = imageData;
 //图片信息转换为URL信息
-/*imageDatas = (function genImageURL(imageDatasArr) {
+imageDatas = (function genImageURL(imageDatasArr) {
   for(let i=0,j=imageDatasArr.length; i<j; i++) {
     let singleImageData = imageDatasArr[i];
     singleImageData.imageURL = require('../images/'+singleImageData.fileName);
     imageDatasArr[i] = singleImageData;
   }
   return imageDatasArr;
-})(imageDatas);*/
+})(imageDatas);
 
 //获取区间内的随机值
 function getRangeRandom(low, high) {
